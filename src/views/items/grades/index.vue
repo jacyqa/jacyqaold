@@ -49,7 +49,7 @@
 
 <style scoped src="./index.css"></style>
 
-<script setup lang="ts">
+<script setup>
 import { groups, members as classData } from "@/components/data";
 import exceljs from "exceljs";
 import { saveAs } from "file-saver";
@@ -72,7 +72,7 @@ function test() {
  * 获取学号对应的姓名，并显示
  */
 
-function findStudentByNumber(index: number = 0) {
+function findStudentByNumber(index= 0) {
   return (
     data.find((member) => member.num === index) || {
       name: "（键入正确学号以检索学生）",
@@ -112,7 +112,7 @@ function handleInputToExpert() {
  *TODO:
  * @returns {Array} 返回一个包含每组成绩平均分的数组。
  */
-function computedTeamGrade(): void {
+function computedTeamGrade(){
   // 遍历每个组，并计算均分，然后添加到组对象上
   group.forEach((group) => {
     let totalGrade = 0;
