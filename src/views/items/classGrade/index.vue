@@ -11,8 +11,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
-//@ts-nocheck
+<script setup>
 import * as ExcelJS from "exceljs";
 const handleBeforeUpload = async (file, fileList) => {
   const reader = new FileReader();

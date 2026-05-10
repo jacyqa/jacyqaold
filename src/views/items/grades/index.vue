@@ -59,8 +59,8 @@ import { saveAs } from "file-saver";
 const group = reactive(groups);
 const showResult = ref(false);
 const data = reactive(classData); //原数组
-const inputNumber = ref(0); //学号（输入值）
-const grade = ref(0); //分数（输入值）
+const inputNumber = ref(undefined); //学号（输入值）
+const grade = ref(undefined); //分数（输入值）
 const isFullPerson = ref(false); //是否开启‘去除未考式人员’
 const passGrade = ref(0); //通过的分数
 
