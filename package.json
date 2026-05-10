@@ -5,12 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "prettier --write . && vue-tsc --build --force && vite build && node ./script/dns-pre.cjs",
+    "build": "prettier --write . && vite build && node ./script/dns-pre.cjs",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build --force",
     "preview": "vite preview",
-    "prettier": "prettier --write .",
-    "init": "tsc --init"
+    "prettier": "prettier --write ."
   },
   "dependencies": {
     "@xmldom/xmldom": "^0.8.10",
@@ -26,7 +24,6 @@
     "pinia-plugin-persistedstate": "^3.2.1",
     "sass": "^1.76.0",
     "terser": "^5.31.0",
-    "typescript": "^5.5.2",
     "unplugin-auto-import": "^0.17.5",
     "unplugin-vue-components": "^0.26.0",
     "url-regex": "^5.0.0",
@@ -34,16 +31,10 @@
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.7",
-    "@tsconfig/node20": "^20.1.4",
-    "@types/file-saver": "^2.0.7",
-    "@types/node": "^20.14.5",
     "@vitejs/plugin-vue": "^5.0.5",
-    "@vue/tsconfig": "^0.5.1",
     "code-inspector-plugin": "^0.15.2",
     "npm-run-all2": "^6.2.0",
     "prettier": "3.3.2",
-    "vite": "^5.3.1",
-    "vue-tsc": "^2.0.21"
+    "vite": "^5.3.1"
   }
 }

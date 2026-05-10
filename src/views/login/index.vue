@@ -66,7 +66,7 @@
 </template>
 
 <!-- <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script> -->
-<script lang="ts" crossorigin="anonymous">
+<script crossorigin="anonymous">
 //@ts-nocheck
 import { useUserStore } from "@/stores/user";
 import router from "@/router/index";

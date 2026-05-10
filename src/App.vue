@@ -27,7 +27,7 @@
   <router-view />
 </template>
 
-<script lang="ts">
+<script>
 import router from "./router/index";
 
 export default {

@@ -41,7 +41,6 @@ export default defineConfig({
     ViteAutoImport({
       imports: ["vue", "vue-router"],
       resolvers: [ElementPlusResolver()],
-      dts: true,
     }),
   ],
   resolve: {

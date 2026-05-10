@@ -3,7 +3,10 @@
   <h1 class="tlt">登分器</h1>
   <el-dialog v-model="showResult">
     <div class="result">
-      <el-result title="Please wait" sub-title="We're preparing your result.But you can close this dialog.">
+      <el-result
+        title="Please wait"
+        sub-title="We're preparing your result.But you can close this dialog."
+      >
       </el-result>
     </div>
   </el-dialog>
@@ -14,14 +17,31 @@
           <el-button @click="handleInput">Next</el-button>
           <el-button @click="handleInputToExpert">导出</el-button>
           <el-button @click="test">test</el-button>
-          <el-input-number v-model="passGrade" placeholder="及格分数" size="small" />
+          <el-input-number
+            v-model="passGrade"
+            placeholder="及格分数"
+            size="small"
+          />
           <el-checkbox v-model="isFullPerson" label="是否去除未考式人员" />
         </div>
         <div class="info">
-          <el-input-number :min="1" :max="63" class="item" v-model="inputNumber" size="large" placeholder="学号" />
+          <el-input-number
+            :min="1"
+            :max="63"
+            class="item"
+            v-model="inputNumber"
+            size="large"
+            placeholder="学号"
+          />
           <h2 class="item">当前学生：{{ findStudentByNumber(inputNumber) }}</h2>
-          <el-input-number :min="0" class="item" v-model="grade" size="large" placeholder="分数"
-            @keyup.enter="handleInput" />
+          <el-input-number
+            :min="0"
+            class="item"
+            v-model="grade"
+            size="large"
+            placeholder="分数"
+            @keyup.enter="handleInput"
+          />
           <h3 class="item">
             男生平均分数：{{ computedSexGrade().maleAverage }}
           </h3>
@@ -54,8 +74,6 @@ import { groups, members as classData } from "@/components/data";
 import exceljs from "exceljs";
 import { saveAs } from "file-saver";
 
-
-
 const group = reactive(groups);
 const showResult = ref(false);
 const data = reactive(classData); //原数组
@@ -72,7 +90,7 @@ function test() {
  * 获取学号对应的姓名，并显示
  */
 
-function findStudentByNumber(index= 0) {
+function findStudentByNumber(index = 0) {
   return (
     data.find((member) => member.num === index) || {
       name: "（键入正确学号以检索学生）",
@@ -85,8 +103,7 @@ function findStudentByNumber(index= 0) {
 function handleInput() {
   if (grade.value && grade.value >= 0) {
     //@ts-ignore
-    data.find((member) => member.num === inputNumber.value).grade =
-      grade.value;
+    data.find((member) => member.num === inputNumber.value).grade = grade.value;
     grade.value = undefined;
     computedTeamGrade();
   } else {
@@ -112,7 +129,7 @@ function handleInputToExpert() {
  *TODO:
  * @returns {Array} 返回一个包含每组成绩平均分的数组。
  */
-function computedTeamGrade(){
+function computedTeamGrade() {
   // 遍历每个组，并计算均分，然后添加到组对象上
   group.forEach((group) => {
     let totalGrade = 0;

@@ -48,15 +48,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref } from "vue";
 import { membersfake as members } from "@/components/data";
 
-const displayNames = ref<string[]>([]);
+const displayNames = ref([]);
 const isChoosing = ref(false);
 const dialogVisible = ref(false);
-const selectedStudents = ref<any[]>([]);
-const selectedCount = ref<number | null>(null);
+const selectedStudents = ref([]);
+const selectedCount = ref(null);
 const maxSelectableCount = 5; // 最大可选择人数
 
 const startChoose = () => {
@@ -64,14 +64,15 @@ const startChoose = () => {
 
   isChoosing.value = true;
   let duration = 2; // 动画持续时间
-  let interval: ReturnType<typeof setInterval>;
+  let interval;
+  const count = selectedCount.value; // 缓存值以避免重复访问
 
   // 初始化显示名字数组
-  displayNames.value = Array(selectedCount.value).fill("");
+  displayNames.value = Array(count).fill("");
 
   // 快速切换名字的动画效果
   interval = setInterval(() => {
-    for (let i = 0; i < selectedCount.value!; i++) {
+    for (let i = 0; i < count; i++) {
       const randomIndex = Math.floor(Math.random() * members.length);
       displayNames.value[i] = members[randomIndex].name;
     }
@@ -80,8 +81,8 @@ const startChoose = () => {
   // 结束选择
   setTimeout(() => {
     clearInterval(interval);
-    const selectedIndices = new Set<number>();
-    while (selectedIndices.size < selectedCount.value!) {
+    const selectedIndices = new Set();
+    while (selectedIndices.size < count) {
       selectedIndices.add(Math.floor(Math.random() * members.length));
     }
     selectedStudents.value = Array.from(selectedIndices).map(

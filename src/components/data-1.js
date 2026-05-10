@@ -1,10 +1,4 @@
-interface fakeStudent {
-  num: number;
-  name: string;
-  grade: number;
-}
-
-export const data: fakeStudent[] = [
+export const data = [
   {
     num: 1,
     name: "马佐涵",

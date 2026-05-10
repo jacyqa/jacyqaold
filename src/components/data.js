@@ -1,21 +1,4 @@
-type ValidId = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
-type sex = "男" | "女";
-interface Member {
-  num: number;
-  name: string;
-  grade: number;
-  sex: sex;
-}
-
-// 定义组类型
-interface Group {
-  averageGrade?: number;
-  id: ValidId;
-  members: Member[];
-  name: string;
-}
-
-export const groups: Group[] = [
+export const groups = [
   {
     id: 1,
     name: "Group1",
@@ -451,8 +434,8 @@ export const groups: Group[] = [
   //   grade: 0,
   // },
 ];
-function getAllMembers(groups: Group[]): Member[] {
-  let allMembers: Member[] = [];
+function getAllMembers(groups) {
+  let allMembers = [];
   groups.forEach((group) => {
     allMembers = allMembers.concat(group.members);
   });

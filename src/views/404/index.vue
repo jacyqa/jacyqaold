@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { getQueryString } from "@/function/getQueryString";
 import { BUILDING_ROUTES } from "@/router/index";
 const httpCode = ref(404);
